@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-midnight: var(--midnight);
+  --color-deep-navy: var(--deep-navy);
+  --color-slate: var(--slate);
+  --color-cyan: var(--cyan);
+  --color-lime: var(--lime);
+  --color-electric-blue: var(--electric-blue);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --color-erc20: var(--erc20);
+  --color-bep20: #f3ba2f;
+  --color-trc20: #eb4141;
+  --color-card-bg: var(--card-bg);
+  --color-border: var(--border-color);
+
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
+
+  --animate-fade-slide-down: fadeSlideDown 0.6s ease-out;
+  --animate-fade-slide-up: fadeSlideUp 0.8s ease-out;
+  --animate-rotate: rotate 8s linear infinite;
+  --animate-drift: drift 25s ease-in-out infinite;
+  --animate-pulse: pulse 2s ease-in-out infinite;
+  --animate-slide-up: slideUp 0.6s ease-out both;
+  --animate-expand-down: expandDown 0.3s ease-out;
+  --animate-fade-in: fadeIn 0.3s ease-out;
+
+  @keyframes fadeSlideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(5%, 5%) rotate(120deg); }
+    66% { transform: translate(-3%, 8%) rotate(240deg); }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(100px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes expandDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  --spacing-4_5: 1.125rem;
+  --z-index-100: 100;
+}
+
+:root {
+  --midnight: #000000;
+  --deep-navy: #0d0d0d;
+  --slate: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --cyan: #00ffcc;
+  --lime: #ccff00;
+  --electric-blue: #00d4ff;
+  --success: #00ff88;
+  --danger: #ff4466;
+  --warning: #ffaa00;
+  --erc20: #627eea;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+.light {
+  --midnight: #ffffff;
+  --deep-navy: #f8fafc;
+  --slate: #e2e8f0;
+  --text-primary: #000000;
+  --text-secondary: #475569;
+  --cyan: #0d9488;
+  --lime: #65a30d;
+  --electric-blue: #0284c7;
+  --success: #10b981;
+  --danger: #e11d48;
+  --warning: #f59e0b;
+  --erc20: #4f46e5;
+  --card-bg: #f1f5f9;
+  --border-color: rgba(13, 148, 136, 0.15);
+}
+
+.light .force-dark,
+.force-dark {
+  /* Raw variables (used by var() references) */
+  --midnight: #000000;
+  --deep-navy: #0d0d0d;
+  --slate: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --cyan: #00ffcc;
+  --lime: #ccff00;
+  --electric-blue: #00d4ff;
+  --success: #00ff88;
+  --danger: #ff4466;
+  --warning: #ffaa00;
+  --erc20: #627eea;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --border-color: rgba(255, 255, 255, 0.1);
+
+  /* Tailwind --color-* overrides (what utility classes actually consume) */
+  --color-midnight: #000000;
+  --color-deep-navy: #0d0d0d;
+  --color-slate: #1a1a1a;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a0a0a0;
+  --color-cyan: #00ffcc;
+  --color-lime: #ccff00;
+  --color-electric-blue: #00d4ff;
+  --color-success: #00ff88;
+  --color-danger: #ff4466;
+  --color-warning: #ffaa00;
+  --color-erc20: #627eea;
+  --color-card-bg: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Surface-only dark lock: keeps card bg/border dark but lets text follow theme */
+.light .force-dark-surface,
+.force-dark-surface {
+  --midnight: #000000;
+  --deep-navy: #0d0d0d;
+  --slate: #1a1a1a;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --border-color: rgba(255, 255, 255, 0.1);
+
+  --color-midnight: #000000;
+  --color-deep-navy: #0d0d0d;
+  --color-slate: #1a1a1a;
+  --color-card-bg: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.1);
+}
+
+/* New utility: lock only the surface (card background and border) to dark values
+   while leaving text variables untouched so text can follow the active theme. */
+.surface-locked {
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --color-card-bg: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  html {
+    @apply transition-colors duration-300;
+  }
+  body {
+    /* Theme-aware background — uses CSS variables so light/dark themes work correctly */
+    @apply bg-midnight text-text-primary font-dm-sans overflow-x-hidden min-h-screen transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .cta-button {
+    @apply px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-br from-cyan to-electric-blue text-midnight font-bold text-xs sm:text-sm 
+           rounded-lg shadow-lg shadow-cyan/20 transition-all duration-300 hover:translate-y-[-2px] 
+           hover:shadow-cyan/40 active:translate-y-0 disabled:opacity-50;
+  }
+  
+  .secondary-button {
+    @apply px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-cyan/40 text-cyan font-bold text-xs sm:text-sm rounded-lg 
+           transition-all duration-300 hover:bg-cyan/10 hover:translate-y-[-2px] hover:border-cyan;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-br from-cyan to-electric-blue bg-clip-text text-transparent;
+  }
+  
+  .asset-card {
+    @apply bg-card-bg backdrop-blur-md border border-border rounded-xl p-5 sm:p-8 text-center 
+           transition-all duration-300 hover:translate-y-[-5px] hover:border-cyan 
+           hover:shadow-xl hover:shadow-cyan/10;
+  }
+  
+  .feature-card {
+    @apply bg-card-bg backdrop-blur-md border border-border 
+           rounded-2xl p-6 sm:p-10 transition-all duration-400 relative overflow-hidden 
+           hover:border-cyan hover:shadow-lg dark:hover:shadow-cyan/10;
+  }
+  
+  .chain-badge {
+    @apply px-6 sm:px-9 py-2.5 sm:py-4 bg-card-bg backdrop-blur-sm border-2 border-cyan/40 rounded-full font-bold 
+           text-cyan transition-all duration-300 hover:bg-cyan hover:text-midnight 
+           hover:scale-105 hover:border-cyan;
+  }
+
+  .main-card {
+    @apply bg-card-bg backdrop-blur-xl border border-border rounded-2xl p-6 md:p-8 
+           shadow-2xl shadow-midnight/20 dark:shadow-midnight/40 transition-all duration-300;
+  }
+
+  .clip-hexagon {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
