@@ -112,3 +112,51 @@ vault --version
 
    > [!IMPORTANT]
    > The startup script generates `.vault_secrets` containing the Shamir unseal keys and the initial root token. Keep this file secure and never commit it to source control.
+
+---
+
+## Starting the Frontend
+
+The web dashboard is built with **Next.js 16**, **React 19**, and **Tailwind CSS**.
+
+### 1. Prerequisites
+- **Node.js**: v20 or higher (v22 LTS recommended)
+- **Yarn**: v4 (Berry) or npm / pnpm
+
+### 2. Configure Environment Variables
+From the repository root, enter the `frontend` folder and create your local environment file:
+
+```bash
+cd frontend
+cp .env.local.example .env.local
+```
+
+If your backend API runs on a custom host or port, adjust `NEXT_PUBLIC_API_URL` inside `.env.local`:
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8080/api/v1
+```
+
+### 3. Install Dependencies
+```bash
+yarn install
+# or if using npm:
+# npm install
+```
+
+### 4. Start the Development Server
+```bash
+yarn dev
+# or with Turbopack:
+# yarn dev:turbo
+```
+
+The application will start on `http://localhost:3000` (or `http://0.0.0.0:3000`).
+
+### 5. Production Build (Optional)
+To test or deploy a production build:
+
+```bash
+yarn build
+yarn start
+```
+
