@@ -209,3 +209,7 @@ Thumbs.db
 **/.approle_creds
 *.approle_creds
 .approle_creds
+
+# Allow vault-plugin pre-built binary
+!bin/
+!bin/vault-plugin
