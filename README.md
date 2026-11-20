@@ -93,7 +93,7 @@ vault --version
 
 1. **Clone the repository** (if not already done):
    ```bash
-   git clone <repo_url>
+   git clone github.com:MOLU-dev/Team.git
    cd team
    ```
 
